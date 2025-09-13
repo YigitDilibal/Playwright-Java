@@ -5,27 +5,22 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import methods.ReusableMethods;
 
-public class P05_PageMethods2 {
+public class P06_PageCheckBox {
 
     public static void main(String[] args) {
 
         Playwright playwright = Playwright.create();
         BrowserContext context = ReusableMethods.launchAndMaximize(playwright);
-
         Page page = context.newPage();
 
-        page.navigate("https://www.testotomasyonu.com");
-        page.fill("(//*[@class='search-label'])[1]", "iphone");
-//        page.type("(//*[@class='search-label'])[1]", "iphone");
+        page.navigate("https://demoqa.com/checkbox");
 
-        page.locator("(//*[@class='search-label'])[1]").press("Enter");
-//        page.keyboard().press("Enter");
-
-        page.hover("//*[@class='lazy']");
+        page.check("//*[@class='rct-checkbox']");
         ReusableMethods.Sleep(1500);
 
+        page.uncheck("//*[@class='rct-checkbox']");
+        ReusableMethods.Sleep(1500);
 
-        System.out.println(page.title());
 
 
         page.close();
@@ -33,11 +28,8 @@ public class P05_PageMethods2 {
         playwright.close();
 
 
+
     }
-
-
-
-
 
 
 

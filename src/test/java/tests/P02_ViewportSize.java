@@ -25,7 +25,6 @@ public class P02_ViewportSize {
         Thread.sleep(3000);
         page.navigate("https://www.google.com");
         System.out.println(page.title());
-        System.out.println(width + height);
 
         page.close();
         browser.close();

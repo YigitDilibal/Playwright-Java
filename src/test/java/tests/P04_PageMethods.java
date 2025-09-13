@@ -5,7 +5,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import methods.ReusableMethods;
 
-public class P03_MaximizeTest {
+public class P04_PageMethods {
 
     public static void main(String[] args) {
 
@@ -14,20 +14,12 @@ public class P03_MaximizeTest {
         BrowserContext context = ReusableMethods.launchAndMaximize(playwright);
 
         Page page = context.newPage();
-        page.navigate("https://www.google.com");
+        page.navigate("https://www.testotomasyonu.com");
 
-        ReusableMethods.Sleep(2000);
+        page.click("(//*[@class='has-sub'])[1]");
 
-        System.out.println(page.title() + "\n" + page.url());
-        page.navigate("https://youtube.com");
         ReusableMethods.Sleep(1000);
-        page.goBack();
-        ReusableMethods.Sleep(1000);
-        page.reload();
-        ReusableMethods.Sleep(1000);
-        page.goForward();
-        ReusableMethods.Sleep(1000);
-        System.out.println(page.title());
+
 
         page.close();
         context.close();
@@ -35,4 +27,6 @@ public class P03_MaximizeTest {
 
 
     }
+
+
 }
